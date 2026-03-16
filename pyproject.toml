@@ -1,0 +1,15 @@
+[project]
+name = "zomato-ai"
+version = "0.1.0"
+description = "AI-powered restaurant recommendation service"
+requires-python = ">=3.9"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+# Run without Groq API by default: pytest -v
+# Include Groq integration (needs network): pytest -v -m integration
+addopts = "-v -k 'not test_groq_integration'"
+markers = [
+    "integration: marks test as integration (deselect with '-m \"not integration\"')",
+]
